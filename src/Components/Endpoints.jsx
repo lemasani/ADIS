@@ -92,3 +92,30 @@ export async function fetchDevices() {
     throw error;
   }
 }
+
+
+
+export async function updateDevice(deviceId, updatedDeviceData) {
+    try {
+        const response = await axios.put(`/devices/${deviceId}`, updatedDeviceData, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Error updating device:', error);
+        throw error;
+    }
+}
+
+
+export async function deleteDevice(deviceId) {
+  try {
+      const response = await axios.delete(`/devices/${deviceId}`);
+      return response.data;
+  } catch (error) {
+      console.error('Error deleting device:', error);
+      throw error;
+  }
+}
