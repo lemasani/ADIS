@@ -24,7 +24,6 @@ export default function RootLayout({ children }) {
                   </div>
                 )}
               </div>
-              <a href="/monitoring" className="inline-block p-2">Monitoring</a>
               <a href="/logout" className="inline-block p-2">Logout</a>
             </nav>
           </div>
