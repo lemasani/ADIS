@@ -9,6 +9,7 @@ import Login from './Pages/Login'
 import RootLayout from './Layout/RootLayout'
 import Dashboard from './Pages/Dashboard'
 import DeviceRegistration from './Pages/DeviceRegistration'
+import Devices from './Pages/Devices'
 
 
 const router = createBrowserRouter(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
 
       <Route path='/dashboard' element={<RootLayout><Dashboard /></RootLayout>} />
       <Route path='/device-registration' element={<RootLayout><DeviceRegistration /></RootLayout>} />
+      <Route path='/devices' element={<RootLayout><Devices /></RootLayout>} />
 
     </Route>
   )

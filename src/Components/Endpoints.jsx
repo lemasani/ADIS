@@ -6,7 +6,7 @@ export async function submitRegistration(userData) {
     try {
       // Generate a UUID for the user data
       const uuid = generateUUID();
-      const userDataWithUUID = { ...userData, uuid };
+      const userDataWithUUID = { ...userData,id: uuid };
 
       // Use Axios to submit registration data
       const response = await axios.post('/users', userDataWithUUID, {
@@ -80,4 +80,15 @@ export async function submitDeviceRegistration(deviceData) {
         console.error('Error during device registration:', error);
         throw error;
     }
+}
+
+
+export async function fetchDevices() {
+  try {
+    const response = await axios.get('/devices');
+    return response.data; // Assuming the response data is the list of devices
+  } catch (error) {
+    console.error('Error fetching devices:', error);
+    throw error;
+  }
 }
