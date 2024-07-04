@@ -12,7 +12,7 @@ export default function Login() {
     },
     validationSchema: Yup.object({
       name: Yup.string().required('Required'),
-      password: Yup.string().min(8, 'Must be 8 characters or more').required('Required'),
+      password: Yup.string().min(6, 'Must be 8 characters or more').required('Required'),
     }),
     onSubmit: async (values, { setSubmitting }) => {
       try {

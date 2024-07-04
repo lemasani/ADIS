@@ -25,18 +25,23 @@ export async function submitRegistration(userData) {
 
 
 export async function login(userData) {
-    try {
-      const response = await axios.post('/auth', userData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      return response.data;
-    } catch (error) {
-      console.error('Error during login:', error);
-      throw error;
-    }
+  try {
+    // Extract name and password from userData
+    const { name, password } = userData;
+    // Construct the query parameters
+    const queryParams = new URLSearchParams({ name, password }).toString();
+    const response = await axios.post(`/auth?${queryParams}`, null, {
+      headers: {
+        'accept': '*/*', // Adjusted according to the curl command
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error during login:', error);
+    throw error;
   }
+}
 
 
 

@@ -17,7 +17,7 @@ export default function Register() {
     validationSchema: Yup.object({
       name: Yup.string().required('Required'),
       email: Yup.string().email('Invalid email address').required('Required'),
-      password: Yup.string().min(8, 'Must be 8 characters or more').required('Required'),
+      password: Yup.string().min(6, 'Must be 8 characters or more').required('Required'),
       confirmPassword: Yup.string()
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
         .required('Required'),
