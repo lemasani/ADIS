@@ -2,8 +2,10 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import * as Yup from 'yup';
 import { submitDeviceRegistration } from '../Components/Endpoints';
+import { useAuth } from '../Utils/useAuth';
 
 export default function DeviceRegistration() {
+    useAuth()
     const [registrationMessage, setRegistrationMessage] = useState('');
 
     const formik = useFormik({

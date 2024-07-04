@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
+import { useAuth } from '../Utils/useAuth';
 import  updateTime  from '../Utils/weatherUpdator'; // Adjust the path as necessary
 
 import Chart from 'chart.js/auto';
 
 export default function Dashboard() {
+    useAuth()
     const temperatureChartRef = useRef(null);
     const humidityChartRef = useRef(null);
     const [chartData, setChartData] = useState({ averages: { temperature: 0, humidity: 0 }, chartData: [] });

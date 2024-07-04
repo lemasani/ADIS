@@ -1,8 +1,10 @@
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { login } from '../Components/Endpoints';
 
 export default function Login() {
+  const navigate = useNavigate()
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -16,6 +18,8 @@ export default function Login() {
       try {
         const response = await login(values);
         console.log('Login successful:', response);
+        sessionStorage.setItem('userData', JSON.stringify(response)); // Store user data in session storage
+        navigate('/dashboard');
         // Handle successful login (e.g., redirect to home page)
       } catch (error) {
         console.error('Login failed:', error);

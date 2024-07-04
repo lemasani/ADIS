@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 import { fetchDevices, updateDevice, deleteDevice } from '../Components/Endpoints';
 import DeviceEditModal from '../Components/DeviceEditModal';
 import DeviceDeleteModal from '../Components/DeviceDeleteModal';
+import { useAuth } from '../Utils/useAuth';
 
 export default function Devices() {
+  useAuth()
   const [devices, setDevices] = useState([]);
   const [filter, setFilter] = useState('');
 
